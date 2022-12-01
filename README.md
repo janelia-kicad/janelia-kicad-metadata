@@ -1,15 +1,15 @@
-- [About](#org2af1626)
-- [Images](#orgd54087c)
-- [Schematic](#org9c35788)
-- [PCB](#orgac861f5)
-- [Bill of Materials](#org2320c0c)
-- [Development](#orga1c53ae)
+- [About](#org6baad4f)
+- [Images](#orgfee6c30)
+- [Schematic](#org08aa2d4)
+- [PCB](#org08a816b)
+- [Bill of Materials](#org349160b)
+- [Development](#orgab3630e)
 
     <!-- This file is generated automatically from .metadata.org -->
     <!-- File edits may be overwritten! -->
 
 
-<a id="org2af1626"></a>
+<a id="org6baad4f"></a>
 
 # About
 
@@ -17,33 +17,33 @@
 - Name: project_name
 - Description: Project documentation.
 - Version: 0.1.0
-- Date: 2022-11-30
+- Date: 2023-01-01
 - License: BSD-3-Clause
 - URL: https://github.com/janelia-kicad/repository_name
 - Author: Peter Polidoro
 - Email: peter@polidoro.io
-- Copyright: 2022 Howard Hughes Medical Institute
+- Copyright: 2023 Howard Hughes Medical Institute
 - References:
   - https://www.kicad.org/
 ```
 
 
-<a id="orgd54087c"></a>
+<a id="orgfee6c30"></a>
 
 # Images
 
 
-<a id="org9c35788"></a>
+<a id="org08aa2d4"></a>
 
 # Schematic
 
 
-<a id="orgac861f5"></a>
+<a id="org08a816b"></a>
 
 # PCB
 
 
-<a id="org2320c0c"></a>
+<a id="org349160b"></a>
 
 # Bill of Materials
 
@@ -52,7 +52,7 @@
 |  |
 
 
-<a id="orga1c53ae"></a>
+<a id="orgab3630e"></a>
 
 # Development
 
