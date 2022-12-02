@@ -1,15 +1,15 @@
-- [About](#org6baad4f)
-- [Images](#orgfee6c30)
-- [Schematic](#org08aa2d4)
-- [PCB](#org08a816b)
-- [Bill of Materials](#org349160b)
-- [Development](#orgab3630e)
+- [About](#org7a20fb4)
+- [Images](#orgd7f9738)
+- [Schematic](#org68b7873)
+- [PCB](#org0fafdf0)
+- [Bill of Materials](#org774cd0a)
+- [Development](#org3d853d9)
 
     <!-- This file is generated automatically from .metadata.org -->
     <!-- File edits may be overwritten! -->
 
 
-<a id="org6baad4f"></a>
+<a id="org7a20fb4"></a>
 
 # About
 
@@ -28,22 +28,22 @@
 ```
 
 
-<a id="orgfee6c30"></a>
+<a id="orgd7f9738"></a>
 
 # Images
 
 
-<a id="org08aa2d4"></a>
+<a id="org68b7873"></a>
 
 # Schematic
 
 
-<a id="org08a816b"></a>
+<a id="org0fafdf0"></a>
 
 # PCB
 
 
-<a id="org349160b"></a>
+<a id="org774cd0a"></a>
 
 # Bill of Materials
 
@@ -52,41 +52,36 @@
 |  |
 
 
-<a id="orgab3630e"></a>
+<a id="org3d853d9"></a>
 
 # Development
 
-
-## Install Guix
+1.  Install Guix.
 
 [Install Guix](https://guix.gnu.org/manual/en/html_node/Binary-Installation.html)
 
-
-## Clone Repository
+1.  Clone repository.
 
 ```sh
 git clone https://github.com/janelia-kicad/repository_name
 cd repository_name
 ```
 
+1.  Open project in KiCad
 
-## Edit .metadata.org
+```sh
+make project-edits
+exit
+```
+
+. Open .metadata.org.
 
 ```sh
 make metadata-edits
 ```
 
-
-## Tangle .metadata.org
+1.  Modify project specific variables.
 
 ```sh
 make metadata
-```
-
-
-## Edit files
-
-```sh
-make file-edits
-exit
 ```

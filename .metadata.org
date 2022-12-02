@@ -7,11 +7,6 @@
 <!-- File edits may be overwritten! -->
 #+END_EXAMPLE
 
-* Instructions                                                     :noexport:
-
-1. Modify project specific variables.
-2. 
-
 * Project Specific Variables                                       :noexport:
 
 #+NAME: name
@@ -133,32 +128,32 @@ KiCad
 
 #+NAME: documentation-dir
 #+BEGIN_SRC text :exports none :noweb yes
-./documentation/
+./documentation
 #+END_SRC
 
 #+NAME: bom-dir
 #+BEGIN_SRC text :exports none :noweb yes
-<<documentation-dir>>bom/
+<<documentation-dir>>/bom
 #+END_SRC
 
 #+NAME: fabrication-dir
 #+BEGIN_SRC text :exports none :noweb yes
-<<documentation-dir>>fabrication/
+<<documentation-dir>>/fabrication
 #+END_SRC
 
 #+NAME: pcb-dir
 #+BEGIN_SRC text :exports none :noweb yes
-<<documentation-dir>>pcb/
+<<documentation-dir>>/pcb
 #+END_SRC
 
 #+NAME: reference-dir
 #+BEGIN_SRC text :exports none :noweb yes
-<<documentation-dir>>pcb/
+<<documentation-dir>>/reference
 #+END_SRC
 
 #+NAME: schematic-dir
 #+BEGIN_SRC text :exports none :noweb yes
-<<documentation-dir>>schematic/
+<<documentation-dir>>/schematic
 #+END_SRC
 
 * About
@@ -181,7 +176,7 @@ KiCad
 
 #+BEGIN_SRC python :noweb yes :exports results :results output raw
 from pathlib import Path
-path_strings = ['<<pcb-dir>>top-assembled.png', '<<pcb-dir>>bottom-assembled.png']
+path_strings = ['<<pcb-dir>>/top-assembled.png', '<<pcb-dir>>/bottom-assembled.png']
 for path_string in path_strings:
     path = Path(path_string)
     if path.is_file():
@@ -226,9 +221,9 @@ inkscape --export-area-drawing --export-type=png --export-dpi=300 <<pcb-dir>>*.s
 
 #+BEGIN_SRC python :noweb yes :exports results :results output raw
 from pathlib import Path
-path_strings = ['<<pcb-dir>>top-bare.png',
-                '<<pcb-dir>>bottom-bare.png',
-                '<<pcb-dir>><<name>>-User_Drawings.png']
+path_strings = ['<<pcb-dir>>/top-bare.png',
+                '<<pcb-dir>>/bottom-bare.png',
+                '<<pcb-dir>>/<<name>>-User_Drawings.png']
 for path_string in path_strings:
     path = Path(path_string)
     if path.is_file():
@@ -248,35 +243,36 @@ return bom
 
 * Development
 
-** Install Guix
+1. Install Guix.
 
 [[https://guix.gnu.org/manual/en/html_node/Binary-Installation.html][Install Guix]]
 
-** Clone Repository
+2. Clone repository.
 
 #+BEGIN_SRC sh :noweb yes
 git clone <<repository-url>>
 cd <<repository-name>>
 #+END_SRC
 
-** Edit .metadata.org
+3. Open project in KiCad
+
+#+BEGIN_SRC sh :noweb yes
+make project-edits
+exit
+#+END_SRC
+
+. Open .metadata.org.
 
 #+BEGIN_SRC sh :noweb yes
 make metadata-edits
 #+END_SRC
 
-** Tangle .metadata.org
+4. Modify project specific variables.
 
 #+BEGIN_SRC sh :noweb yes
 make metadata
 #+END_SRC
 
-** Edit files
-
-#+BEGIN_SRC sh :noweb yes
-make file-edits
-exit
-#+END_SRC
 
 * Tangled Files                                                    :noexport:
 
@@ -321,7 +317,7 @@ exit
         (url "https://git.savannah.gnu.org/git/guix.git")
         (branch "master")
         (commit
-          "26e1f39888eaf2723353f20950d936d102c6bd6a")
+          "9ddc4e5b0338accbc707992050d2a9c21c41e05e")
         (introduction
           (make-channel-introduction
             "9edb3f66fd807b096b48283debdcddccfea34bad"
@@ -355,7 +351,6 @@ exit
    "inkscape"
    "python"
    "python-kicad-bom"
-   "coreutils"
    "python-ipython"))
 #+END_SRC
 
@@ -366,7 +361,7 @@ exit
 upload: metadata package twine add clean
 
 GUIX-SHELL = guix time-machine -C .channels.scm -- shell -m .manifest.scm
-GUIX-CONTAINER = $(GUIX-SHELL) --container
+GUIX-CONTAINER = guix time-machine -C .channels.scm -- shell -m .manifest.scm --container
 GUIX-CONTAINER-GUI = $(GUIX-CONTAINER) -E "^DISPLAY$$" -E "^XAUTHORITY$$" --expose="$$XAUTHORITY" --expose=/tmp/.X11-unix/ --expose=$$HOME/.Xauthority --expose=/etc/machine-id
 
 shell:
@@ -381,8 +376,8 @@ metadata-edits:
 metadata:
 	$(GUIX-CONTAINER) -- sh -c "emacs --batch -Q  -l .init.el --eval '(process-org \".metadata.org\")'"
 
-file-edits:
-	$(GUIX-SHELL) --pure -- kicad
+project-edits:
+	$(GUIX-SHELL) -- kicad
 
 ipython-shell:
 	$(GUIX-CONTAINER) -- ipython
