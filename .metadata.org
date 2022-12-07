@@ -24,11 +24,6 @@ repository_name
 0.1.0
 #+END_SRC
 
-#+NAME: release-month-day
-#+BEGIN_SRC text :exports none :noweb yes
-01-01
-#+END_SRC
-
 #+NAME: description
 #+BEGIN_SRC text :exports none :noweb yes
 Project documentation.
@@ -46,14 +41,19 @@ https://www.kicad.org/
 
 * General and Derived Variables                                    :noexport:
 
+#+NAME: release-month-day
+#+BEGIN_SRC emacs-lisp :exports none :noweb yes
+(format-time-string "%m-%d")
+#+END_SRC
+
 #+NAME: release-year
-#+BEGIN_SRC text :exports none :noweb yes
-2023
+#+BEGIN_SRC emacs-lisp :exports none :noweb ye
+(format-time-string "%Y")
 #+END_SRC
 
 #+NAME: release-date
 #+BEGIN_SRC text :exports none :noweb yes
-<<release-year>>-<<release-month-day>>
+<<release-year()>>-<<release-month-day()>>
 #+END_SRC
 
 #+NAME: license
@@ -118,7 +118,7 @@ Howard Hughes Medical Institute
 
 #+NAME: copyright
 #+BEGIN_SRC text :exports none :noweb yes
-<<release-year>> <<affiliation>>
+<<release-year()>> <<affiliation>>
 #+END_SRC
 
 #+NAME: programming-language
@@ -162,7 +162,8 @@ KiCad
 - Name: <<name>>
 - Description: <<description>>
 - Version: <<version>>
-- Date: <<release-date>>
+- Release Date: <<release-date>>
+- Creation Date: <<creation-date>>
 - License: <<license>>
 - URL: <<repository-url>>
 - Author: <<author>>
@@ -448,7 +449,7 @@ clean:
 #+BEGIN_SRC text :tangle LICENSE :exports none :noweb yes
 Janelia Open-Source Software (3-clause BSD License)
 
-Copyright <<release-year>> <<affiliation>>
+Copyright <<release-year()>> <<affiliation>>
 
 Redistribution and use in source and binary forms, with or without modification,
 are permitted provided that the following conditions are met:
