@@ -1,15 +1,15 @@
-- [About](#org0385e62)
-- [Images](#org80ddf13)
-- [Schematic](#org8a12fff)
-- [PCB](#orgb3217d2)
-- [Bill of Materials](#orgea48c19)
-- [Development](#org66e61d9)
+- [About](#org138cd1c)
+- [Images](#org55d04ae)
+- [Schematic](#org356b82d)
+- [PCB](#org51fa021)
+- [Bill of Materials](#org0c6aa3b)
+- [Development](#orgc015faa)
 
     <!-- This file is generated automatically from .metadata.org -->
     <!-- File edits may be overwritten! -->
 
 
-<a id="org0385e62"></a>
+<a id="org138cd1c"></a>
 
 # About
 
@@ -17,7 +17,7 @@
 - Name: project_name
 - Description: Project documentation.
 - Version: 0.1.0
-- Release Date: 2022-12-07
+- Release Date: 2022-12-08
 - Creation Date: 2023-01-01
 - License: BSD-3-Clause
 - URL: https://github.com/janelia-kicad/repository_name
@@ -29,22 +29,22 @@
 ```
 
 
-<a id="org80ddf13"></a>
+<a id="org55d04ae"></a>
 
 # Images
 
 
-<a id="org8a12fff"></a>
+<a id="org356b82d"></a>
 
 # Schematic
 
 
-<a id="orgb3217d2"></a>
+<a id="org51fa021"></a>
 
 # PCB
 
 
-<a id="orgea48c19"></a>
+<a id="org0c6aa3b"></a>
 
 # Bill of Materials
 
@@ -53,7 +53,7 @@
 |  |
 
 
-<a id="org66e61d9"></a>
+<a id="orgc015faa"></a>
 
 # Development
 
